@@ -1,5 +1,6 @@
 {
   "files": {
+    ".gitattributes": "c1b70d1ecd28192c342f704c4d31886bad188c2b7aea652d0097a9623c780ba3",
     ".gitignore": "b2e76449abeb4235d9644b2671c6593bacccdd51979827b96eec01c1d06541a1",
     "config.json": "db8f299edc30aebe55ece75d00e16e27cdf3b7dcb8f7123bef3773e9200cd4ad",
     "data/frozen_forecast.parquet": "675f8bfd4a84f7192839bb8ff2cee4a1db4464f85a44eceb2bbed591bb5863ef",

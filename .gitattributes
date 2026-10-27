@@ -1,0 +1,2 @@
+# Keep frozen model, CSV and manifest bytes identical after clone on every OS.
+* -text
