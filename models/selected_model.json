@@ -1,0 +1,60 @@
+{
+  "name": "originalA5",
+  "features": "Alpha158",
+  "feature_count": 158,
+  "learner": "LightGBM",
+  "target": "five-day market-beta residual, daily cross-sectional normalization",
+  "parameters": {
+    "only_intervention": "five-day beta-adjusted residual training target",
+    "lookback": 252,
+    "half_life": 60,
+    "minimum_valid_pairs": 126,
+    "unknown_beta_fallback": 1,
+    "beta_clipping": false,
+    "tree": {
+      "colsample_bytree": 0.8879,
+      "learning_rate": 0.2,
+      "subsample": 0.8789,
+      "lambda_l1": 205.6999,
+      "lambda_l2": 580.9768,
+      "max_depth": 8,
+      "num_leaves": 210,
+      "num_threads": 4,
+      "seed": 20261023,
+      "deterministic": true,
+      "force_col_wise": true,
+      "objective": "mse",
+      "verbosity": -1
+    },
+    "feature_count": 158,
+    "max_rounds": 1000,
+    "early_stop": 50
+  },
+  "folds": [
+    {
+      "name": "first_2016",
+      "asof": "2015-12-31",
+      "train_start": "2008-01-01",
+      "train_year_end": "2013-12-31",
+      "valid_start": "2014-01-01",
+      "valid_year_end": "2015-12-31"
+    },
+    {
+      "name": "frozen_2017_2025",
+      "asof": "2016-12-30",
+      "train_start": "2008-01-01",
+      "train_year_end": "2014-12-31",
+      "valid_start": "2015-01-01",
+      "valid_year_end": "2016-12-30"
+    }
+  ],
+  "trees": [
+    11,
+    20
+  ],
+  "models_sha256": {
+    "first_2016_model.txt": "41e94eea6b85ea2c0b0022b88420c2df83d3604de9b51853f65d8e1d5e47f46b",
+    "frozen_2017_2025_model.txt": "83291567a73772f8ddc59b6b1afa7ec8dca8a3eac7018ec787edfe9a44ff59f2"
+  },
+  "model_changed_for_final_delivery": false
+}

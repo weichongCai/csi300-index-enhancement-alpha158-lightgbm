@@ -1,0 +1,30 @@
+{
+  "files": {
+    ".gitignore": "b2e76449abeb4235d9644b2671c6593bacccdd51979827b96eec01c1d06541a1",
+    "config.json": "db8f299edc30aebe55ece75d00e16e27cdf3b7dcb8f7123bef3773e9200cd4ad",
+    "data/frozen_forecast.parquet": "675f8bfd4a84f7192839bb8ff2cee4a1db4464f85a44eceb2bbed591bb5863ef",
+    "data/official_index_levels.csv": "4f78bd0a203e3125070723c75b4a1b28f1459a684d9f57508e97953fd87743ca",
+    "data/README.md": "a2d57d7171c13e49ca37e97d2fa77f09e81965c66311dcc2b0e9eef8d87a28e7",
+    "models/first_2016_model.txt": "41e94eea6b85ea2c0b0022b88420c2df83d3604de9b51853f65d8e1d5e47f46b",
+    "models/frozen_2017_2025_model.txt": "83291567a73772f8ddc59b6b1afa7ec8dca8a3eac7018ec787edfe9a44ff59f2",
+    "models/selected_model.json": "6bee0a54db8f9003d3fb1310e0c0ba6183554dc1444ac0d70717a35d54848d6a",
+    "NOTICE.md": "a80c3448c97c5b652a4fef699d2b54708b056e81aa3fd4656d01d3fdce01f366",
+    "README.md": "19d68605794829c28a2274b49536ce61788c7248bf48ea226e618845e14291e7",
+    "requirements.txt": "f7027ad954d8fd900d6909627eca17149145776fb1773caec2fdc33fa006927a",
+    "results/annual.csv": "8d4d2fe42a08ae423634ac5577391df0e30607fe14a90872aa83fd745b55d7b2",
+    "results/backtest.png": "678276a6f2b873ea9a3ce5a3996587f81dc09508f26ca83753c70af1e0bcf29f",
+    "results/checks.json": "cf0bbd89ca0b0848a7124fdcba58d4295190fc2bcf443b6b69832a2ff26207aa",
+    "results/daily.csv": "4ef87c9d4ab2ea4ea11d452a2e30e49d021ae6ee26519ad2c6b7edd3478ce9e5",
+    "results/daily_report.csv": "bfc82614891154a87d95efcc0f779e6b05cc03fdeafa0dbf776931466d26f3e9",
+    "results/metrics.json": "c2f4c83ca3e00d9509524fc8da353314145fb8e222c78a7d3d333fdf81de2d24",
+    "results/prediction_check.json": "2d0fd0bbaf6209fe33c7084582a920e489b6080ef603cfdbb3d9c2d5f5ff4018",
+    "run.py": "5f595968b2e8a1ed44662ede3a68209ab25b01599775ca0f8e63a313eef8e7b5",
+    "src/__init__.py": "24a57c39024a7a9c2eb1c3985e8d13c5053da92743efd78eca5db20cce3730d9",
+    "src/backtest.py": "497c9fb60c0c75da69e468f5c2fc82e10e79e8d6f763d9f4be0051a6567c797a",
+    "src/exchange.py": "142fd0118cf204c7bdd6e96c0a99396bbbfebb5a60933580e5dff861433fabaf",
+    "src/metrics.py": "454f52e36f7b4ff27fba80253daa7d5cfa0fbea352417974bc06e2f2f9a4f794",
+    "src/model.py": "e21ebe5589d880bac95b5bf47616c3d82d8f88241c97551674395077ebe84070",
+    "src/orders.py": "ca727ab03b44a9aba6f91e7ca6166e1eefc7b4566179740834ec04950853bb13",
+    "tests/test_metrics.py": "a91f697fc5790f858dd9781e54f62cdfe5e27e81b8e1cff731d7e11f43fe9775"
+  }
+}

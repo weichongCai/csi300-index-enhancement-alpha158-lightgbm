@@ -1,0 +1,15 @@
+{
+  "both_folds_match_saved_scores": true,
+  "checks": [
+    {
+      "date": "2015-12-31",
+      "rows": 3,
+      "max_abs_difference": 0.0
+    },
+    {
+      "date": "2017-01-03",
+      "rows": 3,
+      "max_abs_difference": 0.0
+    }
+  ]
+}

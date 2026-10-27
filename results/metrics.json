@@ -1,0 +1,17 @@
+{
+  "accounting": "qlib_adjusted_price_units_no_separate_corporate_action_ledger",
+  "start": "2016-01-04",
+  "end": "2025-12-31",
+  "trading_days": 2430,
+  "mean_annual_net_active_ir": 1.5320845832333219,
+  "pooled_net_active_ir": 1.4891913435991484,
+  "calendar_10year_cagr": 0.18005617833332743,
+  "absolute_max_drawdown": -0.3050374652020311,
+  "relative_max_drawdown": -0.10617780035949864,
+  "active_tracking_error": 0.08295946503974799,
+  "terminal_nav": 5.23632785175398,
+  "mean_stock_exposure": 0.9941274920612361,
+  "benchmark": "H00300 total return; initial close funding matched",
+  "development_data_reused": true,
+  "raw_share_ledger_equivalence_claimed": false
+}

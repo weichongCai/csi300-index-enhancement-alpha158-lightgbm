@@ -1,0 +1,29 @@
+{
+  "scope": "lean adjusted-price release; no separate corporate action ledger",
+  "frozen_models_unchanged": true,
+  "frozen_predictions_unchanged": true,
+  "both_model_folds_prediction_parity": {
+    "both_folds_match_saved_scores": true,
+    "checks": [
+      {
+        "date": "2015-12-31",
+        "rows": 3,
+        "max_abs_difference": 0.0
+      },
+      {
+        "date": "2017-01-03",
+        "rows": 3,
+        "max_abs_difference": 0.0
+      }
+    ]
+  },
+  "full_backtest_days": 2430,
+  "positive_fills": 22629,
+  "previous_day_signals": true,
+  "nonnegative_cash": true,
+  "net_return_matches_account_nav": true,
+  "initial_benchmark_return_zero": true,
+  "independent_metric_recalculation": true,
+  "mean_annual_ir_recalculated": 1.5320845832333205,
+  "development_period_reused": true
+}
