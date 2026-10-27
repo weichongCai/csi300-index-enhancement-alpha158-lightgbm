@@ -1,0 +1,24 @@
+{
+  "experiment": "fixed_directional_execution_price_slippage",
+  "slippage_bps": 3.0,
+  "buy_execution": "next_close * 1.0003",
+  "sell_execution": "next_close * 0.9997",
+  "commission": "max(actual_execution_value * original_fee_rate, 5 CNY)",
+  "additional_slippage_cash_fee": false,
+  "end_day_valuation": "unshifted adjusted close",
+  "price_feasibility": "reject slipped prices outside observed daily low/high; no clipping",
+  "capacity": "original 5% volume and amount caps; actual slipped notional also checked",
+  "new_model_fit_or_parameter_search": false,
+  "development_data_reused": true,
+  "simplified_daily_slippage_model_not_order_book_replay": true,
+  "frozen_model_sha256": {
+    "first_2016_model.txt": "41e94eea6b85ea2c0b0022b88420c2df83d3604de9b51853f65d8e1d5e47f46b",
+    "frozen_2017_2025_model.txt": "83291567a73772f8ddc59b6b1afa7ec8dca8a3eac7018ec787edfe9a44ff59f2"
+  },
+  "fixed_inputs_sha256": {
+    "config.json": "3d271f3c84a8131507eaf98dabf8daa793029005655def891c5f33bbbecd6a59",
+    "data/frozen_forecast.parquet": "675f8bfd4a84f7192839bb8ff2cee4a1db4464f85a44eceb2bbed591bb5863ef",
+    "data/official_index_levels.csv": "a3d9788c1aad4dfdc3c5244c08d0e1f041ec7ca62d39adab2b8265e6d2f1c82c",
+    "results/daily_report.csv": "6d467a16898c3038b5a6d5680b235fafa9942a9f6ce96e1ca439096998df9787"
+  }
+}

@@ -28,16 +28,27 @@ class FillExecutor(SimulatorExecutor):
     def _collect_data(self, trade_decision, level=0):
         result, info = super()._collect_data(trade_decision, level)
         for order, value, cost, price in result:
-            self.fills.append({
+            row = {
                 'date': str(order.start_time.date()), 'instrument': order.stock_id,
                 'direction': int(order.direction), 'requested_amount': float(order.amount),
                 'filled_amount': float(order.deal_amount), 'price': float(price),
                 'value': float(value), 'cost': float(cost),
-            })
+            }
+            if hasattr(self.trade_exchange, 'slippage_bps'):
+                reference = self.trade_exchange.get_close(order.stock_id, order.start_time, order.end_time)
+                row['reference_close'] = float(reference) if reference is not None else np.nan
+                row['slippage_bps'] = float(self.trade_exchange.slippage_bps)
+                row['day_low'] = self.trade_exchange._field(order, '$low')
+                row['day_high'] = self.trade_exchange._field(order, '$high')
+                row['daily_amount_cap'] = (self.trade_exchange._field(order, '$amount') * 1000.
+                                            * self.trade_exchange.capacity_fraction)
+                row['daily_volume_cap'] = (self.trade_exchange._field(order, '$volume') * 100.
+                                            * self.trade_exchange.capacity_fraction)
+            self.fills.append(row)
         return result, info
 
 
-def run(root, data_dir, destination):
+def run(root, data_dir, destination, *, slippage_bps=0.):
     root, data_dir, destination = map(Path, [root, data_dir, destination])
     if destination.exists():
         raise FileExistsError('Choose a new output directory; old runs are never overwritten.')
@@ -50,12 +61,16 @@ def run(root, data_dir, destination):
         raise ValueError('Unexpected frozen prediction dates, shape or values.')
     symbols = list(D.list_instruments(D.instruments('csi300'),
                    start_time='2008-01-01', end_time=cfg['end'], as_list=True))
-    exchange = AdjustedExchange(
+    exchange_class, extra_kwargs = AdjustedExchange, {}
+    if slippage_bps != 0:
+        from .slippage_exchange import SlippageExchange
+        exchange_class, extra_kwargs = SlippageExchange, {'slippage_bps': slippage_bps}
+    exchange = exchange_class(
         capacity_fraction=cfg['daily_capacity_fraction'], codes=symbols,
         start_time='2015-12-31', end_time=cfg['end'], freq='day', deal_price='close',
         limit_threshold=cfg['directional_limit_threshold'], trade_unit=cfg['trade_unit'],
         open_cost=cfg['open_cost'], close_cost=cfg['close_cost'], min_cost=cfg['min_cost'],
-        subscribe_fields=['$high', '$low', '$amount', 'Ref($close,1)'])
+        subscribe_fields=['$high', '$low', '$amount', 'Ref($close,1)'], **extra_kwargs)
     if exchange.trade_w_adj_price:
         raise ValueError('Qlib factor is missing; refusing to silently disable lot conversion.')
     strategy = FrozenStrategy(signal=prediction, topk=cfg['topk'], n_drop=cfg['n_drop'],
@@ -81,6 +96,10 @@ def run(root, data_dir, destination):
     report.to_csv(destination / 'daily_report.csv')
     pd.DataFrame(executor.fills).to_csv(destination / 'orders.csv', index=False)
     timing.to_csv(destination / 'signal_timing.csv', index=False)
+    if hasattr(exchange, 'price_rejections'):
+        pd.DataFrame(exchange.price_rejections,
+                     columns=['date','instrument','direction','slipped_price','low','high']).to_csv(
+                         destination / 'slippage_price_rejections.csv', index=False)
     holdings = [{'date': date, 'instrument': code, 'weight': weight}
                 for date, position in positions.items()
                 for code, weight in position.get_stock_weight_dict().items()]

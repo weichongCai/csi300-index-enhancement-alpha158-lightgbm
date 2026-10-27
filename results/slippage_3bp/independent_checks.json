@@ -1,0 +1,13 @@
+{
+  "scope": "fixed 3bp adverse execution prices, independent checks",
+  "positive_fills_checked": 22266,
+  "daily_cash_balances_checked": 2430,
+  "maximum_decimal_price_difference": 5.684341886080802e-14,
+  "maximum_decimal_fee_difference": 3.637978807091713e-12,
+  "original_fills_not_modified_when_adding_quote_audit_fields": true,
+  "all_twenty_annual_irs_and_both_NAV_curves_recalculated": true,
+  "slippage_in_price_not_a_second_fee": true,
+  "out_of_range_rejections_verified": 460,
+  "baseline_model_predictions_and_accounts_unchanged": true,
+  "simplified_daily_price_model_not_order_book_replay": true
+}

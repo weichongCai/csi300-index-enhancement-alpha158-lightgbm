@@ -29,6 +29,11 @@ def main():
     report_parser.add_argument('--output', type=Path, required=True)
     peers_parser = sub.add_parser('peers', help='与五只沪深300增强基金比较，不需要原始股票行情')
     peers_parser.add_argument('--output', type=Path, required=True)
+    slippage_report = sub.add_parser('slippage-report', help='重算已保存的每边3bp成交价滑点实验')
+    slippage_report.add_argument('--output', type=Path, required=True)
+    slippage = sub.add_parser('slippage', help='完整重跑每边3bp成交价滑点实验，不训练或调参')
+    slippage.add_argument('--data-dir', type=Path, required=True)
+    slippage.add_argument('--output', type=Path, required=True)
     p = sub.add_parser('predict', help='使用本地Qlib数据生成预测')
     p.add_argument('--data-dir', type=Path, required=True)
     p.add_argument('--start', required=True)
@@ -40,6 +45,10 @@ def main():
     args = parser.parse_args()
     verify_files()
     if args.command == 'check':
+        return
+    if args.command == 'slippage-report':
+        from src.slippage_experiment import saved_report
+        print(saved_report(ROOT, args.output).to_string(index=False))
         return
     if args.command == 'peers':
         from src.peers import save_comparison
@@ -58,6 +67,10 @@ def main():
         return
     from src.model import init_data
     data = init_data(args.data_dir)
+    if args.command == 'slippage':
+        from src.slippage_experiment import run_experiment
+        print(run_experiment(ROOT, data, args.output).to_string(index=False))
+        return
     if args.command == 'predict':
         if args.output.exists():
             raise FileExistsError('Output already exists.')
