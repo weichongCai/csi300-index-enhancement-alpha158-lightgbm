@@ -1,0 +1,22 @@
+{
+  "research_period_is_reused_development": true,
+  "models_promoted": false,
+  "factor_hypotheses": 158,
+  "BY_5pct_rejections": 32,
+  "minimum_empirical_p": 5e-05,
+  "bootstrap": {
+    "method": "circular moving blocks",
+    "block_length": 20,
+    "replications": 19999,
+    "seed": 20261027
+  },
+  "IR_interval_is_pooled_not_mean_annual": true,
+  "FDR_does_not_correct_prior_adaptive_strategy_search": true,
+  "confidence_intervals_do_not_prove_alpha": true,
+  "full_Barra_or_industry_neutrality_claimed": false,
+  "mean_annual_two_sided_turnover": 44.8551433080376,
+  "mean_annual_commission_fraction_sum": 0.04483201582264343,
+  "mean_annual_slippage_attribution_fraction_sum": 0.013456540012037643,
+  "capacity_stress_is_static_path_not_actual_AUM_backtest": true,
+  "risk_proxies_reference_equal_weight_universe_not_index_weights": true
+}

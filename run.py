@@ -25,6 +25,16 @@ def main():
     parser = argparse.ArgumentParser(description='冻结模型检查、预测与复权价格回测')
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('check', help='核对随仓库提供的模型、代码与结果文件')
+    research_report = sub.add_parser('research-report', help='重算因子、过拟合、模型、风险与执行诊断及曲线')
+    research_report.add_argument('--output', type=Path, required=True)
+    reference = sub.add_parser('research-backtest', help='同规则重跑固定Ridge参考模型，每边3bp成交价滑点')
+    reference.add_argument('--data-dir', type=Path, required=True)
+    reference.add_argument('--output', type=Path, required=True)
+    build = sub.add_parser('research-build', help='从可信本地特征缓存与行情构造诊断统计，不修改策略')
+    build.add_argument('--data-dir', type=Path, required=True)
+    build.add_argument('--early-features', type=Path, required=True)
+    build.add_argument('--late-features', type=Path, required=True)
+    build.add_argument('--output', type=Path, required=True)
     report_parser = sub.add_parser('report', help='从已保存账户重算指标与曲线，不需要原始行情')
     report_parser.add_argument('--output', type=Path, required=True)
     peers_parser = sub.add_parser('peers', help='与五只沪深300增强基金比较，不需要原始股票行情')
@@ -45,6 +55,14 @@ def main():
     args = parser.parse_args()
     verify_files()
     if args.command == 'check':
+        return
+    if args.command == 'research-report':
+        from src.research_report import save
+        print(save(ROOT,args.output).to_string(index=False))
+        return
+    if args.command == 'research-build':
+        from src.research_build import build
+        build(ROOT,args.data_dir,args.early_features,args.late_features,args.output)
         return
     if args.command == 'slippage-report':
         from src.slippage_experiment import saved_report
@@ -67,6 +85,14 @@ def main():
         return
     from src.model import init_data
     data = init_data(args.data_dir)
+    if args.command == 'research-backtest':
+        import pandas as pd
+        from src.backtest import run
+        from src.metrics import save_results
+        forecast=pd.read_parquet(ROOT/'results/research/linear_reference/frozen_ridge_forecast.parquet').iloc[:,0]
+        report=run(ROOT,data,args.output,slippage_bps=3.,prediction_override=forecast)
+        print(save_results(ROOT,report,args.output))
+        return
     if args.command == 'slippage':
         from src.slippage_experiment import run_experiment
         print(run_experiment(ROOT, data, args.output).to_string(index=False))

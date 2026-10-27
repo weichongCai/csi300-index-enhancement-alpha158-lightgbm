@@ -1,0 +1,5 @@
+prior_trend,prior_volatility,days,conditional_active_mean_times_252,conditional_active_IR,discontinuous_subset_not_NAV_or_OOS
+above_200d,vol_at_most_25pct,1183,0.10819575898147604,1.5984324918668273,True
+above_200d,vol_over_25pct,154,0.03187293754933519,0.4427653337740311,True
+below_200d,vol_at_most_25pct,777,0.06586324978109352,0.726384458848193,True
+below_200d,vol_over_25pct,117,0.5109457643837112,4.481265350550647,True

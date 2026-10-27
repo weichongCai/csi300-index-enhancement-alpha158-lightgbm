@@ -1,0 +1,3 @@
+model,pooled_active_IR,circular_block_percentile_CI_low,circular_block_percentile_CI_high
+LightGBM_3bp,1.343649192744929,0.779802512296519,1.9251088485146708
+Ridge_3bp,0.4858896453827115,-0.10428243446025622,1.067395088488436

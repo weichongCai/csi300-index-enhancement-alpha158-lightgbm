@@ -1,0 +1,20 @@
+{
+  "scope": "actual adverse execution prices in adjusted-price account",
+  "trading_days": 2430,
+  "order_records": 23488,
+  "positive_fills": 21405,
+  "price_range_rejections": 549,
+  "total_commission": 78368343.49133153,
+  "execution_slippage_loss_attribution": 23513436.350695428,
+  "slippage_not_deducted_again_as_fee": true,
+  "actual_prices_checked_against_reference": true,
+  "actual_fill_prices_inside_daily_range": true,
+  "actual_notional_and_volume_capacity_checked": true,
+  "daily_cash_reconciled_from_slipped_trades": true,
+  "first_day_NAV_loss_equals_commission_plus_slippage": true,
+  "signal_timing_checked": true,
+  "model_files_unchanged": true,
+  "baseline_not_overwritten": true,
+  "reference_model": "fixed Ridge; not frozen LightGBM",
+  "models_promoted": false
+}

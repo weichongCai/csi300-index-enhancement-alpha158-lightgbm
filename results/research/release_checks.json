@@ -1,0 +1,25 @@
+{
+  "frozen_original_payload_files_byte_identical": [
+    "config.json",
+    "data/frozen_forecast.parquet",
+    "models/first_2016_model.txt",
+    "models/frozen_2017_2025_model.txt",
+    "models/selected_model.json",
+    "results/daily_report.csv",
+    "results/daily.csv",
+    "results/metrics.json",
+    "results/slippage_3bp/slippage_daily_report.csv",
+    "results/slippage_3bp/slippage_orders.parquet",
+    "results/slippage_3bp/metrics.csv"
+  ],
+  "original_commit": "ce3ac9989e4efe1c5198d429089a4c08aabd52f5",
+  "research_factor_rows": 160,
+  "factor_BHY_family_size": 158,
+  "new_model_promoted": false,
+  "new_Ridge_forecast_exact_calendar_match": true,
+  "report_replay_tables_and_figures_matched": true,
+  "unit_tests_passed": 17,
+  "stored_labels_independent_parity_count": 800,
+  "stored_labels_max_error_below": 3e-17,
+  "Ridge_execution_audit": "linear_reference/account_checks.json"
+}

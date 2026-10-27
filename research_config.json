@@ -1,0 +1,22 @@
+{
+  "study": "fixed_model_research_evidence_v1",
+  "signal_start": "2016-01-04",
+  "signal_end": "2025-12-31",
+  "label_price_cutoff": "2025-12-31",
+  "label": "t+1 close to t+6 close, stock return minus beta(t) times market return",
+  "beta_window": 252,
+  "beta_half_life": 60,
+  "minimum_beta_pairs": 126,
+  "minimum_cross_section_pairs": 30,
+  "factor_hypothesis_family": "all 158 original Alpha158 features, two-sided mean RankIC",
+  "illustrative_features": ["KMID", "KUP2", "MA5", "ROC20", "RSV20", "VMA5", "CORR20"],
+  "correlation_sampling": "last mature signal day of every month",
+  "bootstrap": {"method": "circular moving blocks", "block_length": 20, "replications": 19999, "seed": 20261027},
+  "multiple_testing": {"method": "Benjamini-Yekutieli", "fdr": 0.05},
+  "ridge_reference": {"lambda_average_mse": 1.0, "training_z_clip": 5.0, "intercept_penalized": false, "parameter_search": false},
+  "risk_proxies": ["trailing_market_beta", "volatility_60", "momentum_252_21", "log_mean_amount_20"],
+  "risk_proxy_reference": "contemporaneous equal-weight CSI300 universe, not historical index weights",
+  "new_model_promotion": false,
+  "all_2016_2025_reused_development": true,
+  "full_Barra_model_claimed": false
+}

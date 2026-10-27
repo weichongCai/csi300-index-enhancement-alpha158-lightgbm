@@ -1,0 +1,3 @@
+contrast,point_estimate,paired_block_CI_low,paired_block_CI_high
+"LightGBM_3bp minus Ridge_3bp, pooled active IR",0.8577595473622175,0.4199209392783569,1.2985166024110486
+"LightGBM minus Ridge, mean daily RankIC",0.00692356484691619,0.0003623816819878509,0.013590814936953497

@@ -48,12 +48,15 @@ class FillExecutor(SimulatorExecutor):
         return result, info
 
 
-def run(root, data_dir, destination, *, slippage_bps=0.):
+def run(root, data_dir, destination, *, slippage_bps=0., prediction_override=None):
     root, data_dir, destination = map(Path, [root, data_dir, destination])
     if destination.exists():
         raise FileExistsError('Choose a new output directory; old runs are never overwritten.')
     cfg = json.loads((root / 'config.json').read_text(encoding='utf-8'))
-    prediction = pd.read_parquet(root / 'data/frozen_forecast.parquet').iloc[:, 0]
+    frozen = pd.read_parquet(root / 'data/frozen_forecast.parquet').iloc[:, 0]
+    prediction = frozen if prediction_override is None else prediction_override
+    if not isinstance(prediction, pd.Series) or not prediction.index.equals(frozen.index):
+        raise ValueError('Reference predictions must match the frozen forecast index exactly.')
     if (len(prediction) != 729016 or prediction.index.has_duplicates
             or prediction.index.get_level_values('datetime').min() != pd.Timestamp('2015-12-31')
             or prediction.index.get_level_values('datetime').max() != pd.Timestamp('2025-12-31')
