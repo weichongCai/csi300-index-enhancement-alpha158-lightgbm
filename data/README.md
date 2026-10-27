@@ -2,6 +2,7 @@
 
 - `frozen_forecast.parquet`：最终两个模型原有的729016条历史预测，索引为datetime/instrument，列为score。
 - `official_index_levels.csv`：本项目保存的官方沪深300价格/全收益指数水平。评价只使用H00300全收益列。
+- `peers/`：五只沪深300增强基金的公布单位净值、现金分红和来源说明，用于离线重建产品对照。
 
 原始行情不随仓库分发。回测和新预测需要本地Qlib数据目录，包含`features/`、`calendars/day.txt`、`instruments/csi300.txt`。历史成分区间只用于确定当天股票池。
 

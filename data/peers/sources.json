@@ -1,0 +1,73 @@
+{
+  "period": [
+    "2015-12-31",
+    "2025-12-31"
+  ],
+  "comparison_period": [
+    "2016-01-04",
+    "2025-12-31"
+  ],
+  "common_trading_days": 2430,
+  "selection": "five fixed long-history surviving CSI300 enhancement examples, not marketwide",
+  "funds": {
+    "100038": {
+      "name": "富国沪深300增强A/B",
+      "chart_label": "100038 Fullgoal",
+      "raw_published_rows": 2439,
+      "history_url": "https://fundf10.eastmoney.com/jjjz_100038.html",
+      "history_api_request_example": "https://api.fund.eastmoney.com/f10/lsjz?fundCode=100038&pageIndex=1&pageSize=20&startDate=2015-12-31&endDate=2025-12-31",
+      "captured_at_utc": "2026-10-26T06:02:56.783240+00:00",
+      "issuer_reference_url": "https://www.fullgoal.com.cn/fundDetail/100038/index.html",
+      "original_raw_json_sha256": "17404b3e4ce5743cb5d108958ede1d3efb13d6491325f8887ac4306b5dd1e47c",
+      "issuer_reference_sha256": "9fe01c9f0cd794ef00c2ace833d0fb942b1555adbe32f5e9b14e0ef8ec30f6eb"
+    },
+    "000311": {
+      "name": "景顺长城沪深300增强A",
+      "chart_label": "000311 Invesco GW",
+      "raw_published_rows": 2439,
+      "history_url": "https://fundf10.eastmoney.com/jjjz_000311.html",
+      "history_api_request_example": "https://api.fund.eastmoney.com/f10/lsjz?fundCode=000311&pageIndex=1&pageSize=20&startDate=2015-12-31&endDate=2025-12-31",
+      "captured_at_utc": "2026-10-26T06:04:31.600841+00:00",
+      "issuer_reference_url": "https://www.igwfmc.com/upload/dqgg/20260327/2026-03-27景顺长城沪深300指数增强型证券投资基金2025年年度报告.pdf",
+      "original_raw_json_sha256": "d7c0260e560b3f2147ecb9f944abaae9b93a6f953202bb05101c14d55f226fa7",
+      "issuer_reference_sha256": "a09c8124939ba7502259bce18263afe0a188fe84b7d5aad569daf328278abc39"
+    },
+    "110030": {
+      "name": "易方达沪深300量化增强A",
+      "chart_label": "110030 E Fund",
+      "raw_published_rows": 2439,
+      "history_url": "https://fundf10.eastmoney.com/jjjz_110030.html",
+      "history_api_request_example": "https://api.fund.eastmoney.com/f10/lsjz?fundCode=110030&pageIndex=1&pageSize=20&startDate=2015-12-31&endDate=2025-12-31",
+      "captured_at_utc": "2026-10-26T06:06:05.252113+00:00",
+      "issuer_reference_url": "https://cdn.efunds.com.cn/owch/data/bulletin/20260331/易方达沪深300量化增强证券投资基金2025年年度报告.pdf?from=person",
+      "original_raw_json_sha256": "94f3098934eeb5bab4a6bb68a09da497f3ec3b8ff555aaca51287db1ef1755ba",
+      "issuer_reference_sha256": "dbe5577103baf27ca24d7144721d054f621dd56533b9c21c629dbbc6cd47940f"
+    },
+    "163407": {
+      "name": "兴全沪深300增强LOF A",
+      "chart_label": "163407 Xingquan",
+      "raw_published_rows": 2439,
+      "history_url": "https://fundf10.eastmoney.com/jjjz_163407.html",
+      "history_api_request_example": "https://api.fund.eastmoney.com/f10/lsjz?fundCode=163407&pageIndex=1&pageSize=20&startDate=2015-12-31&endDate=2025-12-31",
+      "captured_at_utc": "2026-10-26T06:07:38.786311+00:00",
+      "issuer_reference_url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225053385.PDF",
+      "original_raw_json_sha256": "41c81387be63d4ed559ac5941300dfdb4d2887adcf3f8292f1ee2406b2f78a58",
+      "issuer_reference_sha256": "7423f1c6e95d9f0ae2ee542770fec4cc0641bbc9244eaf43964e8709322a0fbf"
+    },
+    "001015": {
+      "name": "华夏沪深300增强A",
+      "chart_label": "001015 ChinaAMC",
+      "raw_published_rows": 2439,
+      "history_url": "https://fundf10.eastmoney.com/jjjz_001015.html",
+      "history_api_request_example": "https://api.fund.eastmoney.com/f10/lsjz?fundCode=001015&pageIndex=1&pageSize=20&startDate=2015-12-31&endDate=2025-12-31",
+      "captured_at_utc": "2026-10-26T06:09:12.176999+00:00",
+      "issuer_reference_url": "https://www.chinaamc.com/upload/resources/file/2026/03/31/34d4a30add8e48cba7caaf16a542329c.pdf",
+      "original_raw_json_sha256": "6e4c45b958d678098e3f5df919d0d392ae4b1d165c014c2f22a54c8ba05d242a",
+      "issuer_reference_sha256": "d13da5a6ec7126236fd6354fdba527b88e701da9b936dbf789abbebee581475b"
+    }
+  },
+  "source": "published unit NAV and cash distributions from Eastmoney history API",
+  "reinvestment": "(unit_NAV_today + cash_per_unit_today) / unit_NAV_previous_publication",
+  "fund_initial_subscription_redemption_fees_simulated": false,
+  "no_new_model_fit_or_trade_parameter_changes": true
+}

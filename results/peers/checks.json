@@ -1,0 +1,43 @@
+{
+  "scope": "five fixed published fund NAV examples vs unchanged adjusted-price model",
+  "common_trading_days": 2430,
+  "series": 6,
+  "annual_comparisons": 60,
+  "decimal_unit_reinvestment_checks": [
+    {
+      "code": "100038",
+      "published_rows": 2439,
+      "dividend_events": 3,
+      "max_daily_return_difference": 3.5561831257524545e-16
+    },
+    {
+      "code": "000311",
+      "published_rows": 2439,
+      "dividend_events": 2,
+      "max_daily_return_difference": 3.434752482434078e-16
+    },
+    {
+      "code": "110030",
+      "published_rows": 2439,
+      "dividend_events": 0,
+      "max_daily_return_difference": 3.7730235602495554e-16
+    },
+    {
+      "code": "163407",
+      "published_rows": 2439,
+      "dividend_events": 0,
+      "max_daily_return_difference": 4.649058915617843e-16
+    },
+    {
+      "code": "001015",
+      "published_rows": 2439,
+      "dividend_events": 0,
+      "max_daily_return_difference": 3.2786273695961654e-16
+    }
+  ],
+  "summary_and_annual_metrics_independently_recalculated": true,
+  "existing_fund_comparison_reproduced": true,
+  "model_configuration_forecast_and_account_files_unchanged": true,
+  "both_figures_visually_reviewed": true,
+  "no_marketwide_or_live_outperformance_claim": true
+}

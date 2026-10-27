@@ -1,4 +1,4 @@
-"""Check, report, predict and backtest the frozen model."""
+"""Check, report, compare products, predict and backtest the frozen model."""
 from pathlib import Path
 import argparse
 import hashlib
@@ -27,6 +27,8 @@ def main():
     sub.add_parser('check', help='核对随仓库提供的模型、代码与结果文件')
     report_parser = sub.add_parser('report', help='从已保存账户重算指标与曲线，不需要原始行情')
     report_parser.add_argument('--output', type=Path, required=True)
+    peers_parser = sub.add_parser('peers', help='与五只沪深300增强基金比较，不需要原始股票行情')
+    peers_parser.add_argument('--output', type=Path, required=True)
     p = sub.add_parser('predict', help='使用本地Qlib数据生成预测')
     p.add_argument('--data-dir', type=Path, required=True)
     p.add_argument('--start', required=True)
@@ -38,6 +40,12 @@ def main():
     args = parser.parse_args()
     verify_files()
     if args.command == 'check':
+        return
+    if args.command == 'peers':
+        from src.peers import save_comparison
+        metrics = save_comparison(ROOT, args.output)
+        print(metrics.to_string(index=False))
+        print(f'Comparison saved: {args.output}')
         return
     if args.command == 'report':
         if args.output.exists():
