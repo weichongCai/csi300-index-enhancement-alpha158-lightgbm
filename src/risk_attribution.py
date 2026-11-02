@@ -381,6 +381,7 @@ def figures(daily,periods,risks,rolling,exposure,out):
 def write_report(s,periods,annual,risks,out):
     lines=['# 风险归因与回撤分析','','分析对象为冻结LightGBM的 **t+1开盘、每边3bp滑点研究账户**，2016-01-04至2025-12-31，2,430个交易日。原模型、预测、持仓路径与执行参数均未改动。模拟盘另有竞价前现金预算约束，不直接继承本报告结果。','',
            '## 分析结论','',
+           '进一步的持仓、风格、换仓、逐月及尾部交易日解释见[详细归因报告](../deep_attribution/README.md)。下文保留原单市场口径；两种模型分配有所不同，原账户净值没有改变。','',
            f"- 平均股票敞口{s['mean_stock_exposure']:.2%}，净收益事后市场beta约{s['net_beta_descriptive_excluding_initial_day']:.3f}。市场残差预测目标并不使多头组合市场中性。",
            f"- 排除首个建仓/基准近似日，年化净波动{s['net_volatility']:.2%}，跟踪误差{s['tracking_error']:.2%}，组合与基准日收益相关系数{s['market_correlation']:.3f}。",
            f"- 年均双边换手{s['annual_average_two_sided_turnover']:.2f}倍；基础费用和滑点的日占比年均加总为{s['annual_average_commission_fraction_sum']:.2%}、{s['annual_average_slippage_fraction_sum']:.2%}。这是实际路径成本归因，不是扣减CAGR或无成本策略重跑。",
