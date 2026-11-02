@@ -16,6 +16,36 @@ def encode(value):
     return json.dumps(value,ensure_ascii=False,allow_nan=False,default=lambda v:v.item() if isinstance(v,np.generic) else str(v))
 
 
+def current_policy():
+    return {name:digest(ROOT/name) for name in ['config.json','models/frozen_2017_2025_model.txt',
+        'src/model.py','src/orders.py','src/exchange.py','src/slippage_exchange.py','src/backtest.py',
+        'src/open_execution.py','paper/open_rules.py','paper/cli.py']}
+
+
+def register_upgrade(account):
+    ledger=Ledger(Path(account)/'ledger.sqlite');ledger.db.execute('BEGIN IMMEDIATE')
+    previous=ledger.latest()
+    if not previous:raise ValueError('No existing account; new accounts already use next-open rules.')
+    policy=current_policy()
+    for name,expected in previous['policy'].items():
+        if name!='paper/cli.py' and policy.get(name)!=expected:
+            raise ValueError('Unexpected legacy dependency change: '+name)
+    event={'old_policy':previous['policy'],'new_policy':policy,'last_recorded_asof':previous['asof'],
+        'registered_at':str(pd.Timestamp.now(tz='Asia/Shanghai')),
+        'pending_plan_rule':'existing close plan stays close; next generated plan uses prefunded open'}
+    ledger.db.execute('CREATE TABLE IF NOT EXISTS rule_upgrades(id TEXT PRIMARY KEY,payload TEXT NOT NULL)')
+    key=hashlib.sha256(encode([event['old_policy'],policy]).encode()).hexdigest()
+    ledger.db.execute('INSERT OR IGNORE INTO rule_upgrades VALUES(?,?)',(key,encode(event)));ledger.db.commit()
+    ledger.db.close();print('NEXT_OPEN_UPGRADE_REGISTERED',previous['asof'])
+
+
+def upgrade_authorized(ledger,previous,policy):
+    exists=ledger.db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='rule_upgrades'").fetchone()
+    if not exists:return False
+    return any((event:=json.loads(row[0]))['old_policy']==previous['policy'] and event['new_policy']==policy
+        for row in ledger.db.execute('SELECT payload FROM rule_upgrades'))
+
+
 class Ledger:
     def __init__(self,path):
         self.path=Path(path);self.path.parent.mkdir(parents=True,exist_ok=True)
@@ -57,8 +87,7 @@ def run(feed,account,asof=None,historical=False):
     next_days=future[future>day]
     if not len(next_days):raise ValueError('Verified next trading date unavailable.')
     next_day=next_days[0]
-    policy={name:digest(ROOT/name) for name in ['config.json','models/frozen_2017_2025_model.txt',
-        'src/model.py','src/orders.py','src/exchange.py','src/slippage_exchange.py','paper/cli.py']}
+    policy=current_policy()
     cfg=json.loads((ROOT/'config.json').read_text(encoding='utf-8'))
     ledger=Ledger(account/'ledger.sqlite');ledger.db.execute('BEGIN IMMEDIATE')
     previous=ledger.latest()
@@ -67,7 +96,8 @@ def run(feed,account,asof=None,historical=False):
         (account/'latest.json').write_text(encode(previous)+'\n',encoding='utf-8')
         export(ledger,account)
         print('ALREADY_RECORDED',day.date());return previous
-    if previous and (previous['asof']>str(day.date()) or previous['policy']!=policy or previous['historical']!=historical):
+    if previous and (previous['asof']>str(day.date()) or previous['historical']!=historical or
+            (previous['policy']!=policy and not upgrade_authorized(ledger,previous,policy))):
         raise ValueError('Account chronology, frozen policy or mode changed; inspect before continuing.')
     init_data(feed)
     if previous:
@@ -96,11 +126,19 @@ def run(feed,account,asof=None,historical=False):
                 pos.position[code]['amount']/=scale;pos.position[code]['price']*=scale
     fills=[]
     if previous and settle_day<=day:
-        exchange=SlippageExchange(slippage_bps=3.,capacity_fraction=cfg['daily_capacity_fraction'],
+        from paper.open_rules import NEXT_OPEN,execution_rule,PrefundedOpenExchange
+        previous_rule=execution_rule(previous)
+        exchange_kwargs=dict(slippage_bps=3.,capacity_fraction=cfg['daily_capacity_fraction'],
             codes=codes,start_time=str(signal_day.date()),end_time=str(day.date()),freq='day',deal_price='close',
             limit_threshold=cfg['directional_limit_threshold'],trade_unit=cfg['trade_unit'],
             open_cost=cfg['open_cost'],close_cost=cfg['close_cost'],min_cost=cfg['min_cost'],
             subscribe_fields=['$high','$low','$amount','Ref($close,1)'])
+        if previous_rule==NEXT_OPEN:
+            from src.open_execution import PREVIOUS,LAG_VOLUME,LAG_AMOUNT
+            exchange_kwargs.pop('deal_price')
+            exchange_kwargs['subscribe_fields']=['$open',PREVIOUS,LAG_VOLUME,LAG_AMOUNT]
+            exchange=PrefundedOpenExchange(cash_before_auction=pos.get_cash(),**exchange_kwargs)
+        else:exchange=SlippageExchange(**exchange_kwargs)
         dealt=defaultdict(float)
         for planned in previous['plan']:
             code=planned['instrument'];amount=planned['adjusted_amount']/scales[code]
@@ -113,6 +151,7 @@ def run(feed,account,asof=None,historical=False):
                 'cost':float(cost),'price':float(price) if np.isfinite(price) else None,
                 'status':('filled' if np.isclose(order.deal_amount,amount) else 'partial') if order.deal_amount>0 else 'rejected_or_zero',
                 'requested_adjusted_amount':float(amount),'settlement_recorded_on':str(day.date())})
+            fills[-1]['execution_policy']=previous_rule
     stale=[]
     for code in pos.get_stock_list():
         price=quote(code,day,'$close')
@@ -134,9 +173,13 @@ def run(feed,account,asof=None,historical=False):
         hold_thresh=cfg['hold_thresh'],risk_degree=cfg['buy_budget_fraction'],timing=[],
         trade_exchange=SimpleNamespace(open_cost=cfg['open_cost'],close_cost=cfg['close_cost'],min_cost=cfg['min_cost']))
     decision=decide_orders(strategy);plan=[]
-    for order in decision.get_decision():
+    from paper.open_rules import NEXT_OPEN,resize_buys_to_cash
+    planned_orders=resize_buys_to_cash(decision.get_decision(),pos.get_cash(),prior,
+        cfg['open_cost'],cfg['min_cost'],cfg['buy_budget_fraction'])
+    for order in planned_orders:
         plan.append({'order_id':f'PAPER-{day.date()}-{order.stock_id}-{int(order.direction)}',
-            'instrument':order.stock_id,'direction':int(order.direction),'adjusted_amount':float(order.amount)})
+            'instrument':order.stock_id,'direction':int(order.direction),'adjusted_amount':float(order.amount),
+            'execution_policy':NEXT_OPEN})
     basis={}
     for code in set(pos.get_stock_list())|{p['instrument'] for p in plan}:
         factor=quote(code,day,'$factor');close=quote(code,day,'$close')
@@ -149,7 +192,9 @@ def run(feed,account,asof=None,historical=False):
         'cash':float(pos.get_cash()),'holdings':holdings,'nav':float(pos.calculate_value()/cfg['initial_cash']),
         'basis':basis,'fills':fills,'plan':plan,'stale_valuations':stale,'score_count':len(scores),
         'benchmark_total_return_available':False,'broker_connected':False,'slippage_bps':3.,
-        'accounting':cfg['accounting']}
+        'accounting':cfg['accounting'],'execution_policy':NEXT_OPEN,
+        'buy_funding_policy':'cash_available_before_auction_only',
+        'execution_notice':'Opening simulation; same-auction sales do not increase buy cash. Daily close feed records execution after the event.'}
     ledger.save(str(day.date()),result)
     (account/'latest.json').write_text(encode(result)+'\n',encoding='utf-8')
     export(ledger,account)
@@ -181,5 +226,7 @@ def export(ledger,account):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--feed',type=Path,required=True);p.add_argument('--account',type=Path,required=True)
-    p.add_argument('--asof');p.add_argument('--historical-rehearsal',action='store_true');a=p.parse_args()
-    run(a.feed,a.account,a.asof,a.historical_rehearsal)
+    p.add_argument('--asof');p.add_argument('--historical-rehearsal',action='store_true')
+    p.add_argument('--register-next-open-upgrade',action='store_true');a=p.parse_args()
+    if a.register_next_open_upgrade:register_upgrade(a.account)
+    else:run(a.feed,a.account,a.asof,a.historical_rehearsal)

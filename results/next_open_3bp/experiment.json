@@ -1,0 +1,17 @@
+{
+  "experiment": "next_open_3bp_fixed_forecast",
+  "labels_and_model_unchanged": true,
+  "cases": [
+    "open",
+    "close"
+  ],
+  "reference_slippage_bps": 3,
+  "capacity": "5% of previous completed 20-day average volume and amount",
+  "directional_threshold": 0.095,
+  "use_current_day_high_low_for_fill_gate": false,
+  "use_current_day_close_or_volume_for_open_fill_gate": false,
+  "position_rule": "original daily Top50/Drop5",
+  "funding_assumption": "sell then buy sequentially at reference price; simultaneous auction funding not proven",
+  "development_period_reused": true,
+  "forecast_sha256": "675f8bfd4a84f7192839bb8ff2cee4a1db4464f85a44eceb2bbed591bb5863ef"
+}

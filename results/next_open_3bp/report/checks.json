@@ -1,0 +1,26 @@
+{
+  "next_open": {
+    "days": 2430,
+    "order_records": 23664,
+    "positive_fills": 23021,
+    "commission_CNY": 125957596.57357615,
+    "slippage_attribution_CNY": 37782391.21758157,
+    "cash_fees_prices_capacity_and_timing_assertions_passed": true
+  },
+  "matched_close": {
+    "days": 2430,
+    "order_records": 23757,
+    "positive_fills": 22922,
+    "commission_CNY": 116100030.45940247,
+    "slippage_attribution_CNY": 34827093.88577007,
+    "cash_fees_prices_capacity_and_timing_assertions_passed": true
+  },
+  "fixed_model_and_forecast_verified": true,
+  "same_day_future_quote_invariance_tests_passed": true,
+  "first_benchmark_return": -0.06892105909755497,
+  "official_H00300_open_available": false,
+  "benchmark_open_is_approximation": true,
+  "first_day_funding_same_for_all_comparison_rows": true,
+  "report_replay_tables_and_chart_matched": true,
+  "independent_quantity_and_valuation_ledger_checked": true
+}

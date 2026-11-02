@@ -1,0 +1,13 @@
+{
+  "legacy_plan_settled_at_close": true,
+  "new_plan_settled_at_open": true,
+  "new_buy_spending_limited_to_previous_cash": true,
+  "duplicate_day_did_not_retrade": true,
+  "rehearsal_uses_saved_prediction_for_execution_test_only": true,
+  "rows": 3,
+  "deployed_to_existing_local_paper_home": true,
+  "existing_ledger_rows_unchanged": true,
+  "upgrade_event_registered": true,
+  "old_pending_plan_keeps_close_execution": true,
+  "unit_tests_paper": 7
+}

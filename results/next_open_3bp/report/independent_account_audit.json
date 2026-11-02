@@ -1,0 +1,16 @@
+{
+  "open": {
+    "independent_quantity_ledger_rebuilt_days": 2430,
+    "short_positions": false,
+    "cash_plus_marked_stock_matches_account": true,
+    "first_day_intraday_PnL_included": true,
+    "maximum_absolute_account_difference_CNY": 3.5762786865234375e-07
+  },
+  "close": {
+    "independent_quantity_ledger_rebuilt_days": 2430,
+    "short_positions": false,
+    "cash_plus_marked_stock_matches_account": true,
+    "first_day_intraday_PnL_included": true,
+    "maximum_absolute_account_difference_CNY": 2.980232238769531e-07
+  }
+}
