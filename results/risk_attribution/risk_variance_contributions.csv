@@ -1,0 +1,17 @@
+component,variance_share,annual_volatility_contribution,target,sample
+market,0.8550604810995281,0.18747032402392608,absolute,exclude_initial_day
+nonmarket_gross,0.14501844274804482,0.03179500754901178,absolute,exclude_initial_day
+commission,-6.323833788229813e-05,-1.3864880854140428e-05,absolute,exclude_initial_day
+slippage,-1.568550969032303e-05,-3.439017062680753e-06,absolute,exclude_initial_day
+market,0.02765714005570879,0.0023416041169964964,active,exclude_initial_day
+nonmarket_gross,0.9724834510211064,0.08233574577975739,active,exclude_initial_day
+commission,-0.00011204604311905206,-9.486428290570242e-06,active,exclude_initial_day
+slippage,-2.8545033696204798e-05,-2.416778028682687e-06,active,exclude_initial_day
+market,0.8554746143224683,0.18895434379052584,absolute,include_initial_day
+nonmarket_gross,0.14451186501089006,0.03191929271297444,absolute,include_initial_day
+commission,-1.1674679462228333e-05,-2.5786637730883576e-06,absolute,include_initial_day
+slippage,2.519534610419398e-05,5.565062960358749e-06,absolute,include_initial_day
+market,0.028690069591564102,0.0024325461029756426,active,include_initial_day
+nonmarket_gross,0.9713393154685821,0.08235698623766612,active,include_initial_day
+commission,-5.02595154169676e-05,-4.2613555876817085e-06,active,include_initial_day
+slippage,2.0874455270601082e-05,1.769883292132919e-06,active,include_initial_day

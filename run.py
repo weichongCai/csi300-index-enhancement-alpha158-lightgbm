@@ -25,6 +25,8 @@ def main():
     parser = argparse.ArgumentParser(description='冻结模型检查、预测与复权价格回测')
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('check', help='核对随仓库提供的模型、代码与结果文件')
+    risk_report = sub.add_parser('risk-report', help='重算开盘账户风险归因、回撤分解及曲线')
+    risk_report.add_argument('--output', type=Path, required=True)
     research_report = sub.add_parser('research-report', help='重算因子、过拟合、模型、风险与执行诊断及曲线')
     research_report.add_argument('--output', type=Path, required=True)
     reference = sub.add_parser('research-backtest', help='同规则重跑固定Ridge参考模型，每边3bp成交价滑点')
@@ -55,6 +57,10 @@ def main():
     args = parser.parse_args()
     verify_files()
     if args.command == 'check':
+        return
+    if args.command == 'risk-report':
+        from src.risk_attribution import generate
+        generate(ROOT,ROOT/'results/risk_attribution',args.output)
         return
     if args.command == 'research-report':
         from src.research_report import save
