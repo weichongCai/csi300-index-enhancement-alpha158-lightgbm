@@ -1,0 +1,26 @@
+{
+  "selected_case": "risk_net_edge_mean",
+  "selection_period": "2016-2025 reused development",
+  "acceptance_criteria": [
+    "CAGR at least baseline",
+    "mean annual excess IR at least baseline and 1.3",
+    "pooled excess IR at least baseline",
+    "smaller maximum relative drawdown"
+  ],
+  "frozen_model_and_forecast_unchanged": true,
+  "portfolio_rule": "original daily Top50/Drop5; positive calibrated marginal edge net of costs",
+  "calibration": {
+    "window": 126,
+    "minimum_days": 60,
+    "half_life": 60,
+    "target": "t+1 to t+6 open return; cross-sectional demeaned",
+    "applied_coefficient": "max(0, past rolling mean slope)"
+  },
+  "automatic_factor_risk_penalty_enabled": true,
+  "uncertainty_haircut_enabled": false,
+  "paper_account_changed": false,
+  "tie_break": "smallest maximum relative drawdown among candidates meeting every acceptance criterion",
+  "future_returns_used_for_current_decision": false,
+  "independent_out_of_sample_proof": false,
+  "forecast_sha256": "675f8bfd4a84f7192839bb8ff2cee4a1db4464f85a44eceb2bbed591bb5863ef"
+}

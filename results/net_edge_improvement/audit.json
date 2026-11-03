@@ -1,0 +1,66 @@
+{
+  "calibration": {
+    "sampled_daily_slopes_independently_recomputed": 20,
+    "rolling_calibrations_independently_recomputed": 25,
+    "all_mature_label_exits_at_or_before_signal": true
+  },
+  "case_audits": {
+    "net_edge": {
+      "gate_records": 11825,
+      "regular_proposals": 8818,
+      "regular_accepted": 6271,
+      "forced_proposals": 3007,
+      "past_only_calibration_verified": true,
+      "warmup_identical": true,
+      "decision_utility_reconciles": true
+    },
+    "risk_net_edge": {
+      "gate_records": 11825,
+      "regular_proposals": 8922,
+      "regular_accepted": 6342,
+      "forced_proposals": 2903,
+      "past_only_calibration_verified": true,
+      "warmup_identical": true,
+      "decision_utility_reconciles": true
+    },
+    "net_edge_mean": {
+      "gate_records": 11825,
+      "regular_proposals": 8560,
+      "regular_accepted": 7521,
+      "forced_proposals": 3265,
+      "past_only_calibration_verified": true,
+      "warmup_identical": true,
+      "decision_utility_reconciles": true
+    },
+    "risk_net_edge_mean": {
+      "gate_records": 11825,
+      "regular_proposals": 8589,
+      "regular_accepted": 7522,
+      "forced_proposals": 3236,
+      "past_only_calibration_verified": true,
+      "warmup_identical": true,
+      "decision_utility_reconciles": true,
+      "independent_quantity_ledger": {
+        "days": 2430,
+        "maximum_absolute_account_difference_CNY": 3.5762786865234375e-07,
+        "quantity_ledger_nonnegative": true,
+        "marks_match": true
+      },
+      "regular_frozen_score_and_prior_value_cost_checks": 8589,
+      "independent_marginal_risk_checks": 100
+    },
+    "baseline_replay": {
+      "exactly_matches_published_account": true,
+      "independent_quantity_ledger": {
+        "days": 2430,
+        "maximum_absolute_account_difference_CNY": 2.980232238769531e-07,
+        "quantity_ledger_nonnegative": true,
+        "marks_match": true
+      }
+    }
+  },
+  "all_five_variants_disclosed": true,
+  "independent_holdout_claimed": false,
+  "benchmark_first_open_approximation_unchanged": true,
+  "causal_open_exchange_and_3bp_account_validation_passed": true
+}

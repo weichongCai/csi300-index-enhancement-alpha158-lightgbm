@@ -1,0 +1,9 @@
+{
+  "release_tests_passed": 44,
+  "improvement_criteria_passed": true,
+  "calibration_and_quantity_audits_passed": true,
+  "original_models_forecast_and_accounts_unchanged": true,
+  "figures_visually_reviewed": true,
+  "independent_out_of_sample_claimed": false,
+  "maximum_quantity_ledger_difference_CNY": 3.5762786865234375e-07
+}

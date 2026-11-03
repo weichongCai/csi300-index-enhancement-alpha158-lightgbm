@@ -1,0 +1,10 @@
+{
+  "pooled_IR_difference": 0.042104430364909406,
+  "paired_20day_block_bootstrap_95pct": [
+    -0.12306785419593355,
+    0.21783446866373582
+  ],
+  "replications": 4999,
+  "seed": 20261103,
+  "selection_bias_corrected": false
+}
