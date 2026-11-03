@@ -1,0 +1,13 @@
+case,component,relative_contribution
+published_daily,market_mismatch,-0.011471089794302785
+published_daily,nonmarket_gross,-0.020933883348369917
+published_daily,commission,-0.020389395294532896
+published_daily,slippage,-0.006114547998746979
+weekly_equal,market_mismatch,-0.015843813349261365
+weekly_equal,nonmarket_gross,-0.034318059675258666
+weekly_equal,commission,-0.028513161245404563
+weekly_equal,slippage,-0.008554707495764768
+optimized,market_mismatch,-0.07318768722643218
+optimized,nonmarket_gross,-0.10012482906802203
+optimized,commission,-0.008306416980017361
+optimized,slippage,-0.0024913806653025982

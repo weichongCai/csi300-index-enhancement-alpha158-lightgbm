@@ -1,0 +1,4 @@
+case,risk_estimated_days,unavailable_days,mean_predicted_TE,TE_alert_days,beta_alert_days,weight_drift_alert_days,relative_DD_warning_days,relative_DD_escalation_days,unestimable_holding_days,maximum_unestimable_stock_weight,historical_VaR_available_days,frozen_inventory_validation_days,VaR_validation_days,VaR95_exception_rate,standardized_frozen_return_std
+published_daily,2430,0,0.11126221235177179,1441,1676,4,58,32,407,0.05903646004253742,1597,1707,1489,0.0577568838146407,0.6922894439352772
+weekly_equal,2430,0,0.12373352531469055,1984,1772,0,268,140,7,0.021064132016993992,2423,1739,1739,0.04772857964347326,0.621149011765609
+optimized,2430,0,0.1370320916421608,2200,737,293,728,460,0,0.0,2420,1803,1803,0.052135330005546314,0.740078006436251

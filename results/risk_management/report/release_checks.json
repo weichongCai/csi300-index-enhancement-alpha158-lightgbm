@@ -1,0 +1,17 @@
+{
+  "release_tests_passed": 41,
+  "baseline_manifest_files": 183,
+  "unchanged_baseline_files": 182,
+  "only_existing_file_changed": "README.md (new research section)",
+  "models_forecast_and_published_accounts_unchanged": true,
+  "new_candidate_adopted": false,
+  "independently_audited_days_per_account": 2430,
+  "maximum_account_ledger_difference_CNY": 2.384185791015625e-07,
+  "figures_visually_reviewed": [
+    "report/curves.png",
+    "report/risk_monitor.png",
+    "review/failure_window.png"
+  ],
+  "independent_out_of_sample_claimed": false,
+  "official_Barra_claimed": false
+}

@@ -1,0 +1,30 @@
+{
+  "weekly_equal": {
+    "days": 2430,
+    "maximum_absolute_account_difference_CNY": 2.384185791015625e-07,
+    "quantity_ledger_nonnegative": true,
+    "marks_match": true,
+    "planned_rebalances": 511,
+    "skipped_rebalances": 0,
+    "skip_reasons": {},
+    "risk_inputs_never_after_signal": true,
+    "target_risk_contributions_reconcile": true
+  },
+  "optimized": {
+    "days": 2430,
+    "maximum_absolute_account_difference_CNY": 2.384185791015625e-07,
+    "quantity_ledger_nonnegative": true,
+    "marks_match": true,
+    "planned_rebalances": 500,
+    "skipped_rebalances": 11,
+    "skip_reasons": {
+      "skip: signal frontier status: infeasible": 9,
+      "skip: optimizer status: optimal_inaccurate": 2
+    },
+    "risk_inputs_never_after_signal": true,
+    "reference_rank_unattainable_plans": 491,
+    "TE_soft_budget_exceeded_plans": 456,
+    "maximum_TE_soft_budget_excess": 0.1365228881389067,
+    "target_risk_contributions_reconcile": true
+  }
+}

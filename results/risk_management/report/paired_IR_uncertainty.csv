@@ -1,0 +1,3 @@
+comparison,pooled_IR_difference,paired_block_bootstrap_low95,paired_block_bootstrap_high95,block_length,replications,seed,development_selection_corrected
+optimized minus published_daily,-0.6760114282623758,-1.2858066390928924,-0.056843450221874044,20,4999,20261103,False
+optimized minus weekly_equal,-0.4357550640542446,-1.0403796505487526,0.18439410040668283,20,4999,20261103,False

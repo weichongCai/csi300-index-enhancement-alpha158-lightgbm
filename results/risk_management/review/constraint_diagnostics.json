@@ -1,0 +1,7 @@
+{
+  "planned_rebalances": 500,
+  "skipped_rebalances": 11,
+  "reference_unattainable_plans": 491,
+  "TE_budget_exceeded_plans": 456,
+  "turnover_cap_binding_noninitial_plans": 499
+}

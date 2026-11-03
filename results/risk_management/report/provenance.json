@@ -1,0 +1,7 @@
+{
+  "data/frozen_forecast.parquet": "675f8bfd4a84f7192839bb8ff2cee4a1db4464f85a44eceb2bbed591bb5863ef",
+  "results/risk_management/policy.json": "c1bbdca2fa33d1bbe18a109e58989a6a704bdae7f419c43e950abe4e384dc9f8",
+  "results/risk_management/risk_stock_returns.parquet": "188799896d67b4ce2c0184efe25d55f652237437b1113418acbadb91c34502e7",
+  "results/risk_management/risk_benchmark_returns.csv": "626dd7d4d48782a5364e53f3bb0d1ca0a7884489e29cd3c1485b049aa9d68f26",
+  "results/risk_management/official_benchmark_history.json": "c7fda5e9bbc61065e7473f1c29593717263a5d6c71d1bff0d184ac23c1c86ee1"
+}
