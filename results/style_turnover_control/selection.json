@@ -1,0 +1,14 @@
+{
+  "retained_case": "current_replay",
+  "new_cases_passing_joint_criteria": [],
+  "criteria": [
+    "CAGR >= current best",
+    "mean annual excess IR >= current best",
+    "pooled excess IR >= current best",
+    "maximum relative drawdown strictly smaller"
+  ],
+  "development_reused": true,
+  "independent_out_of_sample": false,
+  "paper_changed": false,
+  "discarded_implementation_draft": "Initial cap exemption also covered count-above-50 paired swaps. Corrected before final cap comparisons; unchanged risk coefficients and 6% budget."
+}

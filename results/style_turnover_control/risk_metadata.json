@@ -1,0 +1,48 @@
+{
+  "model": "Conditional benchmark plus historical CSRC broad industries and three price/volume styles; NOT Barra/CNE5",
+  "styles": [
+    "126-minus-21-day momentum",
+    "60-day volatility, at least40",
+    "log20-day traded value, at least15"
+  ],
+  "standardization": "current historical CSI300 members; equal weighted, 5MAD clip; no cap proxy",
+  "industry_source_sha256": "01d79998888900ef737b774cab942031b0f892c67942f31bd84694faaa269575",
+  "industry_sectors": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "LEGACY_SOCIAL",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "UNKNOWN"
+  ],
+  "fit": "equal-member cross-sectional residual regression with prior-close exposures; ridge1e-4",
+  "covariance": "past252 EW half60, 10% diagonal shrinkage",
+  "specific": "past252 EW half60, minimum60; unknown1 annual volatility",
+  "benchmark_exposure": "[1,0,...] conditional observed benchmark anchor; no invented benchmark weights",
+  "covariance_ready_minimum_days": 126,
+  "ready_start": "2014-07-10",
+  "limitations": [
+    "Not official Barra",
+    "No size/value/growth/leverage descriptors",
+    "No actual benchmark industry/style holdings",
+    "Historical classifications are archived monthly snapshots, not certified original vintages",
+    "Constant styles over the next day assumed",
+    "Residual covariance assumed diagonal"
+  ],
+  "development_period_reused": true
+}

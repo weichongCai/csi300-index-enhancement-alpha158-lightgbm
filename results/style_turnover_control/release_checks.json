@@ -1,0 +1,20 @@
+{
+  "release_tests_passed": 51,
+  "current_best_replay_exact": true,
+  "accounts_independently_reconstructed": 4,
+  "account_days_each": 2430,
+  "marginal_risk_whole_variance_checks": 600,
+  "source_inputs_verified": {
+    "truncated_history_style_and_factor_regressions_recomputed": 25,
+    "trailing_covariances_independently_recomputed": 25,
+    "specific_variances_independently_recomputed": 125,
+    "asof_industry_snapshots_independently_checked": 369,
+    "all_regressions_use_previous_close_exposures": true,
+    "sampled_covariances_PSD": true,
+    "source_file_sha256": "01d79998888900ef737b774cab942031b0f892c67942f31bd84694faaa269575"
+  },
+  "retained_previous_model": true,
+  "paper_changed": false,
+  "figures_visually_reviewed": true,
+  "largest_ledger_difference_CNY": 2.980232238769531e-07
+}

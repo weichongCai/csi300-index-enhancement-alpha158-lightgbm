@@ -1,0 +1,82 @@
+{
+  "current_replay": {
+    "ledger": {
+      "days": 2430,
+      "maximum_absolute_account_difference_CNY": 2.980232238769531e-07,
+      "quantity_ledger_nonnegative": true,
+      "marks_match": true
+    },
+    "score_and_cost": {
+      "regular_frozen_score_and_prior_value_cost_checks": 8589,
+      "independent_marginal_risk_checks": 0
+    },
+    "independent_whole_factor_variance_checks": 150,
+    "mature_labels": true,
+    "utility_reconciled": true,
+    "ordinary_planned_cap_verified": null,
+    "turnover_filtered_proposals": 0,
+    "exception_days": {
+      "mandatory_exit_or_count_trim": 654
+    }
+  },
+  "turnover_6pct": {
+    "ledger": {
+      "days": 2430,
+      "maximum_absolute_account_difference_CNY": 2.384185791015625e-07,
+      "quantity_ledger_nonnegative": true,
+      "marks_match": true
+    },
+    "score_and_cost": {
+      "regular_frozen_score_and_prior_value_cost_checks": 9558,
+      "independent_marginal_risk_checks": 0
+    },
+    "independent_whole_factor_variance_checks": 150,
+    "mature_labels": true,
+    "utility_reconciled": true,
+    "ordinary_planned_cap_verified": true,
+    "turnover_filtered_proposals": 4111,
+    "exception_days": {
+      "mandatory_exit_or_pure_trim": 462
+    }
+  },
+  "industry_style": {
+    "ledger": {
+      "days": 2430,
+      "maximum_absolute_account_difference_CNY": 2.980232238769531e-07,
+      "quantity_ledger_nonnegative": true,
+      "marks_match": true
+    },
+    "score_and_cost": {
+      "regular_frozen_score_and_prior_value_cost_checks": 8646,
+      "independent_marginal_risk_checks": 0
+    },
+    "independent_whole_factor_variance_checks": 150,
+    "mature_labels": true,
+    "utility_reconciled": true,
+    "ordinary_planned_cap_verified": null,
+    "turnover_filtered_proposals": 0,
+    "exception_days": {
+      "mandatory_exit_or_count_trim": 643
+    }
+  },
+  "industry_style_turnover_6pct": {
+    "ledger": {
+      "days": 2430,
+      "maximum_absolute_account_difference_CNY": 2.384185791015625e-07,
+      "quantity_ledger_nonnegative": true,
+      "marks_match": true
+    },
+    "score_and_cost": {
+      "regular_frozen_score_and_prior_value_cost_checks": 9731,
+      "independent_marginal_risk_checks": 0
+    },
+    "independent_whole_factor_variance_checks": 150,
+    "mature_labels": true,
+    "utility_reconciled": true,
+    "ordinary_planned_cap_verified": true,
+    "turnover_filtered_proposals": 4175,
+    "exception_days": {
+      "mandatory_exit_or_pure_trim": 427
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "turnover_6pct": {
+    "pooled_IR_difference": -0.23055746632999696,
+    "paired_20day_block_CI95": [
+      -0.5782625650300787,
+      0.09862299719456753
+    ],
+    "replications": 1999,
+    "selection_corrected": false
+  },
+  "industry_style": {
+    "pooled_IR_difference": -0.03340624987648266,
+    "paired_20day_block_CI95": [
+      -0.11307578085109435,
+      0.0560597801239818
+    ],
+    "replications": 1999,
+    "selection_corrected": false
+  },
+  "industry_style_turnover_6pct": {
+    "pooled_IR_difference": -0.12222559278491163,
+    "paired_20day_block_CI95": [
+      -0.43733735422374437,
+      0.20467575540581723
+    ],
+    "replications": 1999,
+    "selection_corrected": false
+  }
+}
