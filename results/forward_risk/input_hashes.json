@@ -1,0 +1,9 @@
+{
+  "inputs_v2_paired_beta.npz": "84b736b70e2dfb96f5200c5f8e29a371ac8bb8a29a2d7092619ebea89bf24cdb",
+  "fitted_model_v2_paired_beta.npz": "8155f84f9d103b1d22f47802e262cce15c17ed8158226935b64cfdeeffe51c14",
+  "estimated_close_weights_NOT_OBSERVED.parquet": "eb68bf04d27a53e2ef6c6b20e9a6b63b6a67d93dc1d2ef3908c3fc46ffc2a8a8",
+  "holdings.parquet": "0aa795b1ca4881e39dcba968b055cce53e41261e6e2657b8f3c54f5818839bc0",
+  "daily_report.csv": "e72f4ea5c49d04d80d6f3a4ecd2906dd71aba74e39965394116d483dc4d62f5e",
+  "frozen_forecast.parquet": "675f8bfd4a84f7192839bb8ff2cee4a1db4464f85a44eceb2bbed591bb5863ef",
+  "csi300.txt": "512999f44c27ba9b537946d89592dc956f952925e0fb621f8869e94c701b9140"
+}

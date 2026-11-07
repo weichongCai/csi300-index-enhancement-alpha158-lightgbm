@@ -1,0 +1,11 @@
+test_future_append_does_not_change_covariance_or_specific_risk (test_risk_model_core.ForwardRiskTests.test_future_append_does_not_change_covariance_or_specific_risk) ... ok
+test_hybrid_matches_independent_psd_full_matrix (test_risk_model_core.ForwardRiskTests.test_hybrid_matches_independent_psd_full_matrix) ... ok
+test_negative_factor_contributions_are_retained (test_risk_model_core.ForwardRiskTests.test_negative_factor_contributions_are_retained) ... ok
+test_rejects_invalid_core_covariance_and_unknown_exposure (test_risk_model_core.ForwardRiskTests.test_rejects_invalid_core_covariance_and_unknown_exposure) ... ok
+test_short_specific_history_is_missing_not_zero (test_risk_model_core.ForwardRiskTests.test_short_specific_history_is_missing_not_zero) ... ok
+test_stock_marginal_risk_matches_finite_difference (test_risk_model_core.ForwardRiskTests.test_stock_marginal_risk_matches_finite_difference) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.061s
+
+OK

@@ -1,0 +1,26 @@
+{
+  "asof_dates": 2430,
+  "statuses": {
+    "core_and_empirical_supplement": 2083,
+    "core_available": 347
+  },
+  "mean_core_TE": 0.07098077776598095,
+  "mean_hybrid_TE": 0.06804184387910117,
+  "mean_unknown_portfolio_weight": 0.028950235078108486,
+  "max_unknown_portfolio_weight": 0.204805657556967,
+  "last_date": "2025-12-31",
+  "last_core_TE": 0.061471123279999,
+  "last_hybrid_TE": null,
+  "validation_days": 2083,
+  "standardized_forward_return_std": 1.0677087635678004,
+  "abs_z_over_1_96_fraction": 0.0700912145943351,
+  "max_variance_sum_error": 2.0328790734103208e-20,
+  "official_Barra": false,
+  "original_strategy_inputs_unchanged": true,
+  "risk_target": "frozen close inventory relative to estimated benchmark holdings, before future trading/costs",
+  "missing_data_block": "separate empirical covariance with shrunk past correlation, NOT fundamental Barra",
+  "F_policy": "trailing252, minimum126 complete factor rows, EW half-life90, diagonal shrink10%, PSD floor",
+  "D_policy": "trailing252, minimum126 residuals, EW half-life60, 20% shrink to dated industry median",
+  "risk_exposure_uses_next_day_return_filter": false,
+  "forward_validation_used_for_fitting": false
+}

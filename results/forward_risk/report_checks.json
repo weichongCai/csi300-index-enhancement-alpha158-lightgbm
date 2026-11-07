@@ -1,0 +1,17 @@
+{
+  "days": 2430,
+  "max_core_group_TE_error": 1.1102230246251565e-16,
+  "max_hybrid_group_TE_error": 1.942890293094024e-16,
+  "max_core_stock_variance_error": 1.8973538018496328e-19,
+  "max_hybrid_stock_variance_error": 9.486769009248164e-20,
+  "all_factor_history_ends_at_or_before_asof": true,
+  "input_hashes_unchanged": true,
+  "latest_complete_hybrid_matrix": {
+    "asof": "2025-12-30",
+    "dimension": 589,
+    "min_eigenvalue": 4.6054761230046e-05,
+    "full_matrix_daily_variance": 1.5321032085025362e-05,
+    "component_daily_variance": 1.5321032085025356e-05
+  },
+  "unit_tests": "6 tests passed; see risk_tests.log"
+}
